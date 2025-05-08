@@ -21,6 +21,7 @@
             <Setter Property="CanUserResizeColumns" Value="True"/>
             <Setter Property="CanUserReorderColumns" Value="True"/>
             <Setter Property="CanUserSortColumns" Value="True"/>
+            
         </Style>
 
         <Style TargetType="DataGridColumnHeader">
