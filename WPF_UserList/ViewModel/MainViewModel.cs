@@ -15,6 +15,7 @@ namespace WPF_UserList.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        #region Properties
         private readonly Services _userService = new Services();
         private ObservableCollection<User> _users;
         private ICollectionView _usersView;
@@ -63,13 +64,17 @@ namespace WPF_UserList.ViewModel
                 UsersView.Refresh();
             }
         }
+        #endregion
 
+        #region constructor
         public MainViewModel()
         {
             ClearCommand = new RelayCommand(Clear);
             LoadData();
         }
+        #endregion
 
+        #region methods
         private void Clear(object obj)
         {
             SelectedCity = null;
@@ -99,7 +104,9 @@ namespace WPF_UserList.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+        #endregion
 
+        #region Command
         public class RelayCommand : ICommand
         {
             private readonly Action<object> _execute;
@@ -121,5 +128,6 @@ namespace WPF_UserList.ViewModel
                 remove { CommandManager.RequerySuggested -= value; }
             }
         }
+        #endregion
     }
 }
